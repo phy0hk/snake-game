@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bsd0ej7obx3mj"]
+
+[ext_resource type="Script" uid="uid://dnbwka3nmwjpm" path="res://Scene/Snake/snake.gd" id="1_nf4ky"]
+[ext_resource type="Texture2D" uid="uid://ce4r0e5o8kws4" path="res://Sprite/Snake/GreenSnake.png" id="1_ymy1a"]
+
+[node name="Snake" type="Area2D" unique_id=1671458507]
+script = ExtResource("1_nf4ky")
+
+[node name="WholeBody" type="Line2D" parent="." unique_id=2097339613]
+position = Vector2(8.000001, -13)
+scale = Vector2(0.46482444, 1.0499998)
+points = PackedVector2Array(-86.054, 12.380956, -51.6324, 12.380956, -17.210798, 12.307692, 17.210796, 12.307692, 51.632397, 12.307692)
+width = 9.0
+default_color = Color(0.6, 0.8980392, 0.3137255, 1)
+texture_mode = 2
+joint_mode = 2
+
+[node name="Head" type="Sprite2D" parent="WholeBody" unique_id=982486046]
+position = Vector2(51.632393, 12.402927)
+scale = Vector2(1, 0.51190466)
+texture = ExtResource("1_ymy1a")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="Tail" type="Sprite2D" parent="WholeBody" unique_id=1558382723]
+position = Vector2(-96.810745, 12.380956)
+scale = Vector2(1, 0.53846157)
+texture = ExtResource("1_ymy1a")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
