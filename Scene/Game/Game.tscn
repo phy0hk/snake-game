@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://cf7kh7w7t6jrb" path="res://Sprite/Grass/Grass.png" id="1_k0621"]
 [ext_resource type="PackedScene" uid="uid://bsd0ej7obx3mj" path="res://Scene/Snake/snake.tscn" id="2_ssqj0"]
+[ext_resource type="Script" uid="uid://dwtla8dkfufwx" path="res://Scene/Game/apple.gd" id="3_ssqj0"]
+[ext_resource type="Texture2D" uid="uid://xf5esw1x4hh" path="res://Sprite/Apple/Apple.png" id="4_eq4nl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w51g1"]
 texture = ExtResource("1_k0621")
@@ -18,6 +20,8 @@ texture = ExtResource("1_k0621")
 [sub_resource type="TileSet" id="TileSet_4jv7b"]
 sources/0 = SubResource("TileSetAtlasSource_w51g1")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_lpnlh"]
+
 [node name="Game" type="Node" unique_id=104426215]
 
 [node name="Grass" type="TileMapLayer" parent="." unique_id=1842496272]
@@ -26,5 +30,31 @@ tile_map_data = PackedByteArray("AAAVABAAAAABAAEAAAAEAAQAAAABAAEAAAAEAAUAAAABAAE
 tile_set = SubResource("TileSet_4jv7b")
 
 [node name="Snake" parent="." unique_id=1671458507 instance=ExtResource("2_ssqj0")]
+z_index = 1
 position = Vector2(208, 560)
-scale = Vector2(2, 2)
+scale = Vector2(1.5, 1.5)
+points = PackedVector2Array(24, 0, -53.333336, 0)
+texture_mode = 1
+
+[node name="Apple" type="Area2D" parent="." unique_id=1556939472]
+script = ExtResource("3_ssqj0")
+
+[node name="AppleSprite" type="Sprite2D" parent="Apple" unique_id=1899000184]
+position = Vector2(143.25, 145.25002)
+scale = Vector2(0.796875, 0.79687494)
+texture = ExtResource("4_eq4nl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Apple" unique_id=1313151282]
+position = Vector2(144, 144)
+shape = SubResource("CircleShape2D_lpnlh")
+
+[node name="Wall" type="Area2D" parent="." unique_id=1886523893]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall" unique_id=1484596594]
+polygon = PackedVector2Array(864, 96, 864, 608, 96, 608, 96, 96, 32, 104, 32, 672, 912, 672, 912, 8, 32, 8, 96, 96)
+
+[connection signal="body_hit" from="Snake" to="Apple" method="_on_snake_body_hit"]
+[connection signal="eat_apple" from="Snake" to="Apple" method="_on_snake_eat_apple"]
+[connection signal="area_shape_entered" from="Apple" to="Snake" method="_on_apple_area_shape_entered"]
+[connection signal="area_shape_entered" from="Wall" to="Snake" method="_on_wall_area_shape_entered"]
+[connection signal="body_entered" from="Wall" to="Snake" method="_on_wall_body_entered"]
