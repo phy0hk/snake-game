@@ -4,8 +4,6 @@ extends Area2D
 @export var cols = 21
 var sprite:Sprite2D
 var apple:CollisionShape2D
-signal eat
-
 
 func _ready():
 	sprite = $AppleSprite

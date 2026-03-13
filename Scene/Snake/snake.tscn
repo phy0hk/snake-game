@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://bsd0ej7obx3mj"]
 
-[ext_resource type="Script" uid="uid://dnbwka3nmwjpm" path="res://Scene/Snake/snake.gd" id="1_nf4ky"]
-[ext_resource type="Texture2D" uid="uid://dgqwlhgq7edx7" path="res://Scene/Snake/SnakeTexture001.png" id="1_uhmq8"]
+[ext_resource type="Script" uid="uid://dvlooi6f5y4dt" path="res://Scene/Snake/snake.gd" id="1_nf4ky"]
 
 [sub_resource type="Curve" id="Curve_ymy1a"]
 _limits = [0.0, 1.0, 0.87499994, 1.0]
 _data = [Vector2(0.87499994, 1), 0.0, 0.0, 0, 0]
 point_count = 1
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ymy1a"]
+load_path = "res://.godot/imported/SnakeTexture001.png-7844cef27f96c11ff78ea0f908f5be38.ctex"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ymy1a"]
 radius = 6.0
@@ -15,8 +17,8 @@ radius = 6.0
 points = PackedVector2Array(29, 0, -32, 0)
 width_curve = SubResource("Curve_ymy1a")
 default_color = Color(0.6, 0.8980392, 0.3137255, 1)
-texture = ExtResource("1_uhmq8")
-texture_mode = 2
+texture = SubResource("CompressedTexture2D_ymy1a")
+texture_mode = 1
 joint_mode = 2
 script = ExtResource("1_nf4ky")
 
@@ -31,5 +33,5 @@ shape = SubResource("CircleShape2D_ymy1a")
 
 [node name="BodyArea" type="Area2D" parent="." unique_id=1275344260]
 
-[connection signal="area_shape_entered" from="SnakeHeadArea" to="." method="_on_area_2d_area_shape_entered"]
+[connection signal="area_shape_entered" from="SnakeHeadArea" to="." method="_on_snake_head_area_area_shape_entered"]
 [connection signal="area_shape_entered" from="BodyArea" to="." method="_on_body_area_area_shape_entered"]

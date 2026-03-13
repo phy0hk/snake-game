@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Snake Game"
+run/main_scene="uid://db6p1pu3qqv5c"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -53,3 +54,4 @@ DOWN={
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

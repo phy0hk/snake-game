@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://db6p1pu3qqv5c"]
+
+[ext_resource type="Script" uid="uid://e6dxot6fjp0f" path="res://Scene/Menu/menu.gd" id="1_bpl5o"]
+
+[node name="Menu" type="Node" unique_id=709811006]
+script = ExtResource("1_bpl5o")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=2101087157]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1152772305]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1747197210]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Play"
+
+[node name="Exit" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1117115678]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Exit"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

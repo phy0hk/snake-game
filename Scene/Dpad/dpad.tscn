@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://d131y680jw068"]
+
+[ext_resource type="Script" uid="uid://cj3qw1st5ersl" path="res://Scene/Dpad/dpad.gd" id="1_11gh5"]
+[ext_resource type="Texture2D" uid="uid://bgpbgyst8fgko" path="res://Sprite/Controls/arrow-big-up.png" id="2_s1pwc"]
+[ext_resource type="Texture2D" uid="uid://dugim3kqglx1x" path="res://Sprite/Controls/arrow-big-down.png" id="3_3xfke"]
+[ext_resource type="Texture2D" uid="uid://r12hgg0pdr1j" path="res://Sprite/Controls/arrow-big-left.png" id="4_j5dcr"]
+[ext_resource type="Texture2D" uid="uid://8du0e3fbl67l" path="res://Sprite/Controls/arrow-big-right.png" id="5_knprg"]
+
+[node name="Dpad" type="Node2D" unique_id=1324021199]
+script = ExtResource("1_11gh5")
+
+[node name="Up" type="Button" parent="." unique_id=619185219]
+offset_left = -32.0
+offset_top = -72.0
+offset_bottom = -40.0
+scale = Vector2(2, 2)
+icon = ExtResource("2_s1pwc")
+
+[node name="Down" type="Button" parent="." unique_id=1423566059]
+offset_left = -32.0
+offset_bottom = 32.0
+scale = Vector2(2, 2)
+icon = ExtResource("3_3xfke")
+
+[node name="Left" type="Button" parent="." unique_id=1964447412]
+offset_left = -104.0
+offset_right = -72.0
+offset_bottom = 32.0
+scale = Vector2(2, 2)
+icon = ExtResource("4_j5dcr")
+
+[node name="Right" type="Button" parent="." unique_id=2082449933]
+offset_left = 40.0
+offset_right = 72.0
+offset_bottom = 32.0
+scale = Vector2(2.0000002, 1.9999999)
+icon = ExtResource("5_knprg")
+
+[connection signal="pressed" from="Up" to="." method="_on_up_pressed"]
+[connection signal="pressed" from="Down" to="." method="_on_down_pressed"]
+[connection signal="pressed" from="Left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="Right" to="." method="_on_right_pressed"]
